@@ -79,18 +79,19 @@
 	<div id="popup3" class="overlay">
 		<div class="popup text-center">
 			<h3 class="text-info"><b>Play more, Gain more</b></h3>
+            <a ><span class="fa fa-close" onclick="cancelPlayAgain();"></span></a>
 			<div class="row">
 				<div class="col-12">
 					<label class="text-muted"><b>0.250 KD</b> will be deducted from your balance</label><br />
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-6">
-					<button id="play-confirm" onclick="playAgain();" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp;Confirm</button>					
+				<div class="col-12 text-center">
+					<button id="play-confirm" onclick="playAgain();" class="btn btn-outline-primary">Confirm</button>					
 				</div>
-                <div class="col-6">
+                <!--<div class="col-6">
                     <button id="play-cancel" onclick="cancelPlayAgain();" class="btn btn-primary"><i class="fa fa-hand-o-down"></i>&nbsp;Cancel</button>
-                </div>
+                </div>-->
 			</div>
 		</div>
 	</div>
