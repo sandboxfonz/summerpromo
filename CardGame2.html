@@ -57,7 +57,7 @@
 		</div>
 		<div class="row text-center" style="margin:10%">
 			<div class="col-12">
-				<button id="btnStarter" class="btn btn-info btn-lg" onclick="javascript:startGame(this, 'new');" start="true">START GAME</button>
+				<button id="btnStarter" class="btn btn-info btn-lg" start="true">START GAME</button>
 				<!--<input type="button" id="btnStarter" class="rg_btn btn btn-outline-success btn-lg fa fa-angle-double-right" onclick="startGame(this,'new');" start="true" value="START GAME" />-->
 			</div>
 		</div>
@@ -94,12 +94,16 @@
 	</div>
 
 	<script src="Assets/js/think2.js" type="text/javascript" crossorigin="anonymous"></script>
-	<!--<script>
+	<script type="text/javascript">
 		//$('.scontainer').shuffle({
 		//	times: 4,
 		//	durations: [500, 650, 750, 500, 900]
-		//});
+        //});
 
-	</script>-->
+        $(document).on("click", "#btnStarter", function () {
+            startGame(this, "new");
+        });
+
+	</script>
 </body>
 </html>
