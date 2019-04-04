@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Summer Promo</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="Assets/js/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="Assets/js/shuffle.js" type="text/javascript" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="Assets/css/font-awesome.min.css">
+	<link href="Assets/css/think.css" rel="stylesheet" />
+	<style>
+		i {
+			font-style: normal;
+			font-weight: bold;
+		}
+		.remove
+		{
+			visibility:collapse;
+		}
+	</style>
+</head>
+<body>
+	<div class="container text-center" style="margin-top:15%;">
+		<div class="deck row grid scontainer" id="card-deck">
+			<div class="col-4 box" rg-row="0" rg-col="0">
+				<div class="card disabled rg_item" type="MNO">
+					<div class="card-body text-center centeredDiv">
+						<i class="child question fa" brun="100 local minutes">100 local minutes</i>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 box" rg-row="0" rg-col="1">
+				<div class="card disabled rg_item" type="CNO">
+					<div class="card-body text-center centeredDiv">
+						<i class="child question fa " brun="10GB Data">10GB Data</i>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 box" rg-row="0" rg-col="2">
+				<div class="card disabled rg_item" type="DNO">
+					<div class="card-body text-center centeredDiv">
+						<i class="child question fa " brun="1KD bonus credit">1KD bonus credit</i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center" >
+			<div class="col-12">
+				<label id="lblStart" class="text-info"></label>
+			</div>
+		</div>
+		<div class="row text-center" style="margin:10%">
+			<div class="col-12">
+				<button id="btnStarter" class="btn btn-info btn-lg" onclick="startGame(this,'new');" start="true">
+					&nbsp;START GAME
+				</button>
+				<!--<input type="button" id="btnStarter" class="rg_btn btn btn-outline-success btn-lg fa fa-angle-double-right" onclick="startGame(this,'new');" start="true" value="START GAME" />-->
+			</div>
+		</div>
+	</div>
+
+	<div id="popup2" class="overlay">
+		<div class="popup text-center">
+			<h2 id="lblHeader"></h2>
+			<a class="close" ><span class="fa fa-close"></span></a>
+			<div id="popupContent" class="content-1">
+			</div>
+			<!--<button id="play-cancel" onclick="closePopupModel();" class="btn btn-default"><i class="fa fa-close"></i>&nbsp;Close</button>-->
+			<!--<button id="play-again" data-toggle="collapse" data-target="#confirm_Window">
+				<span class="fa fa-repeat"></span>&nbsp; Play Again</a>
+			</button>-->
+		</div>
+	</div>
+
+	<div id="popup3" class="overlay">
+		<div class="popup text-center">
+			<h3 class="text-info"><b>Play more, Gain more</b></h3>
+			<div class="row">
+				<div class="col-12">
+					<label class="text-muted"><b>0.250 KD</b> will be deducted from your balance</label><br />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<button id="play-confirm" onclick="playAgain();" class="btn btn-success"><i class="fa fa-hand-o-right"></i>&nbsp;Confirm</button>
+					<button id="play-cancel" onclick="cancelPlayAgain();" class="btn btn-primary"><i class="fa fa-hand-o-down"></i>&nbsp;Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="Assets/js/think2.js" type="text/javascript" crossorigin="anonymous"></script>
+	<!--<script>
+		//$('.scontainer').shuffle({
+		//	times: 4,
+		//	durations: [500, 650, 750, 500, 900]
+		//});
+
+	</script>-->
+</body>
+</html>
