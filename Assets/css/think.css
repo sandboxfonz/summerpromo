@@ -1,0 +1,269 @@
+﻿html, body {
+	height: 100%;
+	margin: 0;
+	background-color: #f1f1f1;
+}
+
+.full-height {
+	height: 100%;
+	background: yellow;
+}
+
+.card {
+	min-height: 130px;
+	margin: 5%;
+	min-width: 100px;
+	background: #6c757d;
+	;
+	font-size: 0;
+	color: #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.question {
+	font-size: 20px;
+}
+
+.questionLG {
+	font-size: 60px;
+	font-weight: bolder;
+}
+
+.bg-danger-border {
+	background-color: white;
+	/*border-color: #dc3545;*/
+	color: #dc3545;
+}
+
+.clickedCard {
+	font-size: 35px;
+	font-stretch: ultra-condensed;
+	text-align: center;
+}
+
+
+
+.deck .card.open {
+	transform: rotateY(0);
+	background: #02b3e4;
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .card.show {
+	font-size: 33px;
+}
+
+.deck .card.match {
+	cursor: default;
+	background: #E5F720;
+	font-size: 33px;
+	animation-name: rubberBand;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+.deck .card.unmatched {
+	animation-name: pulse;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+	background: #e2043b;
+}
+
+.deck .card.disabled {
+	pointer-events: none;
+	opacity: 0.9;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+.centeredDiv
+{
+	display: contents;
+	vertical-align: middle;
+	/*height: 50px;*/
+
+}
+
+/*
+ * Styles for congratulations modal
+ */
+
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	font-family: sans-serif;
+	/*border: 2px solid #e2043b;*/
+
+}
+
+.popup h2 {
+	margin-top: 0;
+	color: #e2043b;
+	/*font-family: Arial;*/
+	font-size: x-large;
+}
+
+.popup .close {
+	position: absolute;
+	top: 0px;
+	right: 10px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	/* color: #e2043b; */
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+	font-size: x-large;
+}
+
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #e2043b;
+	padding: 8px;
+	/* font-size: 1.1rem; */
+	display: block;
+	margin: 0 auto;
+	/* width: 50%; */
+	/* font-family: none; */
+	color: #ffffff;
+	border-radius: 10px;
+	/* box-shadow: 2px 2px 7px 2px #656565; */
+}
+
+
+
+/* animations */
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.zainBG
+{
+	background-image:url('../images/cardBG.jpg');
+	background-size:cover;
+	background-color:#ffffff;
+}
+
+.xtraBG
+{
+	background-image:url('../images/cardBG.jpg');
+	background-size:cover;
+	/*background-color:#e0602a;*/
+	background-color:#ffffff;
+}
