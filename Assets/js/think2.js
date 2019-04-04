@@ -42,54 +42,59 @@ function shuffle(array) {
 // @description function to start a new play
 function startGame(element,game_mode) {
 
-    if (element.getAttribute("start") == "true") {
+    try
+    {
+        alert("clicked");
+        if (element.getAttribute("start") == "true") {
+            alert("true");
+            // shuffle deck
+            cards = shuffle(cards);
 
-        // shuffle deck
-        cards = shuffle(cards);
-
-        document.getElementById('lblStart').innerText = "click a card to uncover it";
-
-        $('.scontainer').shuffle({
-            times: 3,
-            durations: [500, 650, 750]
-        })
-
-        // remove all exisiting classes from each card
-        for (var i = 0; i < cards.length; i++) {
-            //deck.innerHTML = "";
-            [].forEach.call(cards, function (item) {
-
-                var ChildNode = item.querySelector('.child');
-                //if (game_mode === "new")
-                //{
-                //    ChildNode.innerHTML = "";
-                //    ChildNode.classList.remove("question");
-                //    ChildNode.classList.add("questionLG");
-                //}
-                ChildNode.innerHTML = "";
-                ChildNode.classList.remove("question");
-                ChildNode.classList.add("questionLG");
-
-                cards[i].classList.add(getBGClassName(i));
+            document.getElementById('lblStart').innerText = "click a card to uncover it";
+            $('.scontainer').shuffle({
+                times: 3,
+                durations: [500, 650, 750]
             });
+            // remove all exisiting classes from each card
+            for (var i = 0; i < cards.length; i++) {
+                //deck.innerHTML = "";
+                [].forEach.call(cards, function (item) {
 
-            if (game_mode === "new")
-                cards[i].classList.remove("show", "open", "match", "disabled");
+                    var ChildNode = item.querySelector('.child');
+                    //if (game_mode === "new")
+                    //{
+                    //    ChildNode.innerHTML = "";
+                    //    ChildNode.classList.remove("question");
+                    //    ChildNode.classList.add("questionLG");
+                    //}
+                    ChildNode.innerHTML = "";
+                    ChildNode.classList.remove("question");
+                    ChildNode.classList.add("questionLG");
 
+                    cards[i].classList.add(getBGClassName(i));
+                });
+
+                if (game_mode === "new")
+                    cards[i].classList.remove("show", "open", "match", "disabled");
+
+            }
+            // reset moves
+            moves = 0;
+
+            //element.classList.remove("fa-angle-double-right");
+
+            element.disabled = true;
+            element.setAttribute("start", "false");
+            element.innerHTML = "<span class='spinner-grow spinner-grow-sm'></span> Game in Progress";
         }
-        // reset moves
-        moves = 0;
-
-        //element.classList.remove("fa-angle-double-right");
-
-        element.disabled = true;
-        element.setAttribute("start", "false");
-        element.innerHTML = "<span class='spinner-grow spinner-grow-sm'></span> Game in Progress";
-    } else {
-
-        // PLAY AGAIN MODULE
-        showpopUpConfirm_Window();
-    }
+        else {
+            // PLAY AGAIN MODULE
+            showpopUpConfirm_Window();
+        }
+    }catch(exception)
+    {
+        alert("Error occured due to " + exception.message);
+    }    
 }
 
 // @description toggles open and show class to display cards
