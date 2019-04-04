@@ -48,10 +48,8 @@ function shuffle(array) {
 // @description function to start a new play
 function startGame(element,game_mode) {
     try
-    {
-        alert("clicked");
-        if (element.getAttribute("start") == "true") {
-            alert("true");
+    {        
+        if (element.getAttribute("start") == "true") {           
             // shuffle deck
             //cards = shuffle(cards);
 
