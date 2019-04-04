@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Flip Game</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="think2.js" type="text/javascript" crossorigin="anonymous" ></script>
+    <script src="shuffle.js" type="text/javascript" crossorigin="anonymous"></script>
+    <link href="think.css" rel="stylesheet" />
+    <style type="text/css">
+        .align-items-center {
+            -ms-flex-align: center !important;
+            align-items: center !important;
+        }
+
+        .d-flex {
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <section class="section mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <!--<img alt="Web Studio" class="img-fluid" src="https://raw.githubusercontent.com/solodev/vertically-centering/master/images/vc-img-1.jpg" />-->
+                            <img alt="Web Studio" class="img-fluid" src="Assets/images/bg.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                        <div>
+                            <!--<h2 class="text-muted">EeZee Summer Promo</h2>
+                            <br />-->
+                            <h5 class="margin-top-s text-muted">EVERY ZAINER IS A WINNER </h5>
+                            <br />
+                            <!--<button class="btn btn-success btn-lg" onclick="getSubscriperDetails(1)">Think Flip 1</button>-->
+                            <input type="button" id="btnGame" class="btn btn-info btn-lg" value="Go To Game" />
+                            <!--<button id="btnGame" class="btn btn-info btn-lg">Go To Game</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" crossorigin="anonymous">
+
+        $(document).on("click", "#btnGame", function () {
+            window.location.href = "./CardGame2.html";
+        });
+
+    </script>
+</body>
+</html>
