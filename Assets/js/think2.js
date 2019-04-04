@@ -23,7 +23,7 @@ var modal = document.getElementById("popup2")
 var confirm_modal = document.getElementById("popup3")
 
 // close icon in modal
-var closeicon = document.querySelector(".close");
+var closeicon = document.querySelector("#closeCongrats");
 
 // array for opened cards
 var openedCards = [];
