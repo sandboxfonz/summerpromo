@@ -61,9 +61,9 @@ function startGame(element,game_mode) {
             // remove all exisiting classes from each card
             for (var i = 0; i < cards.length; i++) {
                 //deck.innerHTML = "";
-                [].forEach.call(cards, function (item) {
+                //[].forEach.call(cards, function (item) {
 
-                    var ChildNode = item.querySelector('.child');
+                    var ChildNode = cards[i].querySelector('.child');
                     //if (game_mode === "new")
                     //{
                     //    ChildNode.innerHTML = "";
@@ -75,7 +75,7 @@ function startGame(element,game_mode) {
                     ChildNode.classList.add("questionLG");
 
                     cards[i].classList.add(getBGClassName(i));
-                });
+                //});
 
                 if (game_mode === "new")
                     cards[i].classList.remove("show", "open", "match", "disabled");
