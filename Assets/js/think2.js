@@ -1,6 +1,12 @@
 ﻿// cards array holds all cards
 var card = document.getElementsByClassName("card");
-var cards = [...card]
+//var cards = [...card]
+var cards = []
+
+Array.prototype.forEach.call(card, function (el) {
+    // Do stuff here
+    cards.push(el);
+});
 
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
