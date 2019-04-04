@@ -103,12 +103,22 @@
 		//	durations: [500, 650, 750, 500, 900]
         //});
 
-        $(document).on("click", "#btnStarter", function () {
-            startGame(this, "new");
-        });
+        //$(document).on("click", "#btnStarter", function () {
+        //    startGame(this, "new");
+        //});
 
-        $(document).on("click", "#closePlayagain", function () {
-            cancelPlayAgain();
+        //$(document).on("click", "#closePlayagain", function () {
+        //    cancelPlayAgain();
+        //});
+
+        $(document).ready(function () {
+            $("#btnStarter").click(function () {
+                startGame(this, "new");
+            });
+
+            $("#closePlayagain").click(function () {
+                cancelPlayAgain();
+            });
         });
 
 	</script>
