@@ -1,23 +1,23 @@
 ﻿// cards array holds all cards
-let card = document.getElementsByClassName("card");
-let cards = [...card]
+var card = document.getElementsByClassName("card");
+var cards = [...card]
 
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
 // declaring move variable
-let moves = 0;
-let counter = document.querySelector(".moves");
+var moves = 0;
+var counter = document.querySelector(".moves");
 
 // declaring variable of matchedCards
-let matchedCard = document.getElementsByClassName("match");
+var matchedCard = document.getElementsByClassName("match");
 
 // declare modal
-let modal = document.getElementById("popup2")
-let confirm_modal = document.getElementById("popup3")
+var modal = document.getElementById("popup2")
+var confirm_modal = document.getElementById("popup3")
 
 // close icon in modal
-let closeicon = document.querySelector(".close");
+var closeicon = document.querySelector(".close");
 
 // array for opened cards
 var openedCards = [];
@@ -41,14 +41,13 @@ function shuffle(array) {
 
 // @description function to start a new play
 function startGame(element,game_mode) {
-
     try
     {
         alert("clicked");
         if (element.getAttribute("start") == "true") {
             alert("true");
             // shuffle deck
-            cards = shuffle(cards);
+            //cards = shuffle(cards);
 
             document.getElementById('lblStart').innerText = "click a card to uncover it";
             $('.scontainer').shuffle({
