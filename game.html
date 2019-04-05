@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Summer Promo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="assets/js/jquery-3.3.1.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="assets/js/shuffle.js" type="text/javascript"></script>
+        <script src="assets/js/thinkflip.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/think.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css" crossorigin="anonymous">
+        <script type="text/javascript" crossorigin="anonymous" >
+            $(document).ready(function () {
+
+                initialize();
+
+                $("#btnStarter").click(function () {
+                    startGame(this, "new");
+                });
+
+                $("#closePlayagain").click(function () {
+                    cancelPlayAgain();
+                });
+
+                $("#btnCloseCongratulations").click(function () {
+                    closePopupModel();
+                });
+
+
+
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container" style="margin-top:5%;">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span class="text-muted blinkMsg" id='lblinformation' >Don't Refresh or go back when game is in progress...</span>
+                </div>
+            </div>
+
+            <!-- Swap Cards Begins -->
+            <div class="deck row grid scontainer text-center" id="card-deck">
+                <div class="col-4 box">
+                    <div class="card disabled" type="MNO">
+                        <div class="card-body text-center centeredDiv">
+                            <i class="child question" brun="100 local minutes">100 local minutes</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 box">
+                    <div class="card disabled" type="CNO">
+                        <div class="card-body text-center centeredDiv">
+                            <i class="child question" brun="10GB Data">10GB Data</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 box">
+                    <div class="card disabled" type="DNO">
+                        <div class="card-body text-center centeredDiv">
+                            <i class="child question" brun="1KD bonus credit">1KD bonus credit</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Swap Cards Ends -->
+
+            <div class="row text-center" >
+                <div class="col-12">
+                    <label id="lblStart" class="text-info"></label>
+                </div>
+            </div>
+            <div class="row text-center" style="margin:5%">
+                <div class="col">
+                    <button id="btnStarter" class="btn btn-info btn-lg" start="true">Start Game</button>
+                </div>
+            </div>
+            <div class="row text-center" >
+                <div class="col">
+                    <a id="btnEnd" class="btn btn-link text-primary links" onclick="endGame();">End Game</a>
+                    <!--<button id="btnEnd" class="btn btn-danger btn-lg" start="true">End Game</button>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="footer">
+                        <h5 class="underline">Instructions</h5>
+                        <ol class="text-muted">
+                            <li>Don't refresh or go back after starting game. </li>
+                            <li>Loss your game ; if refresh or press back button.</li>
+                            <li>Select any one card after shuffle complete.</li>
+                            <li>wait for the Card secret point</li>
+                            <li>Press "END GAME" to exit from Game. </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- Model for Congratulations Begins -->
+            <div class="modal fade" id="popupCongrats" >
+                <div class="modal-dialog modal-sm" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="text-center">
+                                <h2 id="lblHeader" class="text-danger">Congratulations</h2>
+                            </div>
+                            <button type="button" id="btnCloseCongratulations" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <div class="text-muted" id="popupContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Model for Congratulations Ends -->
+
+            <!-- Model for Play Again Begins -->
+            <div class="modal fade" id="popupReplay" >
+                <div class="modal-dialog modal-sm" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" id='btnClosePlayAgain' class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <h2 class='text-info'>Play more, Gain more</h2>
+                            <hr>
+                            <div id="popupContent">
+                                <p class="text-muted"><b>0.250 KD will be deducted from your balance.</b></p>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button id="play-confirm" onclick="playAgain();" class="btn btn-success"><i class="fa fa-thumbs-up"></i> Confirm</button>	
+                                </div>
+                                <div class='col-6'>
+                                    <button id="play-cancel" onclick="cancelPlayAgain();" class="btn btn-secondary"><i class="fa fa-thumbs-down"></i>&nbsp;Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Model for Play Again Ends -->
+
+            <!-- Model for Play Again Begins -->
+            <div class="modal fade" id="popupError" >
+                <div class="modal-dialog modal-sm" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <h2 class='text-danger'>Error</h2>
+                            <hr>
+                            <div id="popupContent">
+                                <p class="text-muted" id="lblErrMsg"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Model for Play Again Ends -->
+        </div>
+    </body>
+</html>
