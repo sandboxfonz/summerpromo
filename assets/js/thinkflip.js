@@ -67,7 +67,7 @@ function startGame(element, game_mode) {
             {
                 document.getElementById('lblStart').innerText = "click a card to uncover it";
                 $('.scontainer').shuffle({
-                    times: 5,
+                    times: 10,
                     durations: [100, 100, 75]
                 });
 
